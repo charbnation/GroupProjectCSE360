@@ -25,7 +25,7 @@ public class Illness {
         };
         this.pain_rating = new int[10];
         this.severity = 0;
-        Arrays.fill(pain_rating, 0);
+        Arrays.fill(this.pain_rating, 0);
     }
     
     public String getIllnessName(int index) {
@@ -44,7 +44,7 @@ public class Illness {
         this.pain_rating[index] = rate;
     }
     
-    public void setSeverity(int ix) {
-        this.severity = ix;
+    public void setSeverity(int severe_rating) {
+        this.severity = severe_rating;
     }
 }
