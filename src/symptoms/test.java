@@ -38,27 +38,24 @@ public class test {
         System.out.println("Severity to life: " + illness.getSeverity());
         
         // testing random standard deviation to make sure calculation is right
-        int total = 0;
-        int temp[] = new int[] {5,5,3,0,0,0,0,0,1,3};
+        int temp[] = new int[] {5,3,3,0,0,0,0,0,1,3};
         int n = temp.length;
-        
-        double mean, variance, severity;
-        mean = variance = severity = 0;
+        double mean, variance, sum;
+        mean = variance = sum = 0;
         
         for (int i = 0; i < n; i++) {
             mean += temp[i];
         }
         mean /= n;
         
-        double sum = 0;
         for(int i = 0; i < n; i++) {
             variance = temp[i] - mean;
             sum += variance * variance;
         }
         
-        severity = Math.sqrt(sum / n);
+        double severity = Math.sqrt(sum / n);
         
-        System.out.println("Total: " + total + "\n" + "Mean: " + mean + "\n" 
-                + "Variance: " + variance + "\n" + "Severity: " + severity);
+        System.out.println("Mean: " + mean + "\n" + "Variance: " 
+                + variance + "\n" + "Severity: " + severity);
     }
 }

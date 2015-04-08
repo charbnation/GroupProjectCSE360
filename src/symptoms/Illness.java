@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class Illness {
     private final String[] illness_name;
     private final int[] pain_rating;
-    private int severity;
+    private double severity;
     
     Illness() {
         this.illness_name = new String[] {"pain",
@@ -36,7 +36,7 @@ public class Illness {
         return this.pain_rating[index];
     }
     
-    public int getSeverity() {
+    public double getSeverity() {
         return this.severity;
     }
     
@@ -44,7 +44,7 @@ public class Illness {
         this.pain_rating[index] = rate;
     }
     
-    public void setSeverity(int severe_rating) {
+    public void setSeverity(double severe_rating) {
         this.severity = severe_rating;
     }
 }

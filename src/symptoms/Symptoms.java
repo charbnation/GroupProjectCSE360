@@ -27,13 +27,38 @@ public class Symptoms {
         illness.setPainRating(index, pain);
     }
     
-    public void calculateSeverity() {
-        double severity = 0;
+    private void calculateSD() {
+        double mean, variance, sum, severity;
+        int n = 10;
+        mean = variance = sum = severity= 0;
         
-        for (int i = 0; i < 10; i++) {
-            severity += illness.getPainRating(i);
+        for (int i = 0; i < n; i++) {
+            mean += illness.getPainRating(i);
         }
-        double life_threating = severity / 10;
+        mean /= n;
+        
+        for (int i = 0; i < n; i++) {
+            variance = illness.getPainRating(i) - mean;
+            sum += variance * variance;
+        }
+        
+        severity = Math.sqrt(sum / n);
+        illness.setSeverity(severity);
+        
+        if (severity >= 1) {
+            isEmergency(severity);
+        }
+    }
+    
+    public void isEmergency(double severity) {
+        if (severity >= 2) {
+            System.out.println("These symptoms are problematic consult" +
+                    " healthcare.");
+        }
+        else {
+            System.out.println("These symptoms are extremely severe" +
+                    " consult healthcare immediately!");
+        }
     }
     
     public void addToMedicalRecords() {
