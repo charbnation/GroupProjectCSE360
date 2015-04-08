@@ -39,27 +39,26 @@ public class test {
         
         // testing random standard deviation to make sure calculation is right
         int total = 0;
-        int randomArray[] = new int[] {5,5,3,0,0,0,0,0,1,3};
+        int temp[] = new int[] {5,5,3,0,0,0,0,0,1,3};
+        int n = temp.length;
         
-        for (int i = 0; i < randomArray.length; i++) {
-            total = randomArray[i];
+        double mean, variance, severity;
+        mean = variance = severity = 0;
+        
+        for (int i = 0; i < n; i++) {
+            mean += temp[i];
+        }
+        mean /= n;
+        
+        double sum = 0;
+        for(int i = 0; i < n; i++) {
+            variance = temp[i] - mean;
+            sum += variance * variance;
         }
         
-        double mean = total / randomArray.length;
-        double temp[] = new double[randomArray.length];
+        severity = Math.sqrt(sum / n);
         
-        for (int i = 0; i < randomArray.length; i++) {
-            temp[i] = Math.pow((randomArray[i] - mean), 2);
-        }
-        
-        double variance = 0;
-        
-        for (int i = 0; i < temp.length; i++) {
-            variance += temp[i];
-        }
-        
-        int severity = (int)Math.sqrt(variance);
-        
-        System.out.println(total + "\n" + mean + "\n" + variance + "\n" + severity);
+        System.out.println("Total: " + total + "\n" + "Mean: " + mean + "\n" 
+                + "Variance: " + variance + "\n" + "Severity: " + severity);
     }
 }
