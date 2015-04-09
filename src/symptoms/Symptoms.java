@@ -5,14 +5,11 @@
  */
 package symptoms;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Benito
  */
 public class Symptoms {
-    Scanner scan = new Scanner(System.in);
     Illness illness;
     
     Symptoms() {
@@ -54,7 +51,7 @@ public class Symptoms {
         }
     }
     
-    public void isEmergency(double severity) {
+    private void isEmergency(double severity) {
         if (severity >= 2) {
             System.out.println("These symptoms are extremely severe" +
                 " consult healthcare immediately!");
@@ -67,12 +64,10 @@ public class Symptoms {
     }
     
     public void addToMedicalRecords() {
-        String record = "";
-        for (int i = 0; i < 10; i++) {
-            record += illness.getIllnessName(i) + ": " 
-                    + illness.getPainRating(i) + "\n";
-        }
-        
+        String record = illness.toString();
         // TODO: add logic to add this record into the patients DB
+        // Place holder code to say record was entered to DB
+        System.out.println("The record was entered into the database for this"
+            + " patient.");
     }
 }
