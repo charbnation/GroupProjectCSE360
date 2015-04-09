@@ -28,6 +28,7 @@ public class Symptoms {
     */
     public void newSymptoms(int illnessIndex, int pain_rating) {
         illness.setPainRating(illnessIndex, pain_rating);
+        calculateSD();
     }
     
     private void calculateSD() {
