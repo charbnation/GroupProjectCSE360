@@ -47,4 +47,13 @@ public class Illness {
     public void setSeverity(double severe_rating) {
         this.severity = severe_rating;
     }
+    
+    public String toString() {
+        String record = "Symptom history: \n";
+        for (int i = 0; i < pain_rating.length; i++) {
+            record += this.illness_name[i] + ": " + this.pain_rating[i] + "\n";
+        }
+        record += "Severity to life: " + this.severity + "\n";
+        return record;
+    }
 }
