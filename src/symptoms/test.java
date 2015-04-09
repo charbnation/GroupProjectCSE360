@@ -5,9 +5,6 @@
  */
 package symptoms;
 
-import java.io.Console;
-import java.util.Scanner;
-
 /**
  *
  * @author Benito
@@ -35,27 +32,26 @@ public class test {
         // Testing severity and changing severity
         System.out.println("Severity to life: " + illness.getSeverity());
         illness.setSeverity(5);
-        System.out.println("Severity to life: " + illness.getSeverity());
+        System.out.println("Severity to life: " + illness.getSeverity() + "\n");
         
-        // testing random standard deviation to make sure calculation is right
-        int temp[] = new int[] {5,3,3,0,0,0,0,0,1,3};
-        int n = temp.length;
-        double mean, variance, sum;
-        mean = variance = sum = 0;
+        // Testing toString method for Illness class
+        System.out.println(illness.toString());
         
-        for (int i = 0; i < n; i++) {
-            mean += temp[i];
-        }
-        mean /= n;
+        // Testing Symptoms class
+        Symptoms symptoms = new Symptoms();
+        // Pain, tiredness, nausea, depression, anxiety, drowsiness, "appetite,
+        // wellbeing, shortness of breath, other
+        symptoms.newSymptoms(0, 2);
+        symptoms.newSymptoms(1, 3);
+        symptoms.newSymptoms(2, 1);
+        symptoms.newSymptoms(3, 0);
+        symptoms.newSymptoms(4, 10);
+        symptoms.newSymptoms(5, 2);
+        symptoms.newSymptoms(6, 1);
+        symptoms.newSymptoms(7, 5);
+        symptoms.newSymptoms(8, 3);
+        symptoms.newSymptoms(9, 1);
         
-        for(int i = 0; i < n; i++) {
-            variance = temp[i] - mean;
-            sum += variance * variance;
-        }
-        
-        double severity = Math.sqrt(sum / n);
-        
-        System.out.println("Mean: " + mean + "\n" + "Variance: " 
-                + variance + "\n" + "Severity: " + severity);
+        symptoms.addToMedicalRecords();
     }
 }
