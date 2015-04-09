@@ -19,12 +19,15 @@ public class Symptoms {
         illness = new Illness();
     }
     
-    public void newSymptoms() {
-        // Which pain category the patient has chosen and the pain rating
-        int index = scan.nextInt();
-        int pain = scan.nextInt();
-        
-        illness.setPainRating(index, pain);
+    /*
+     * This method will be called by the GUI. When calling this method from 
+     * the GUI the first parameter will be which illness they are currently
+     * suffering from such as: pain, depression, shortness of breath etc.
+     * this will be passed as an int. So if the slider/textfield for depression
+     * is the third one then this will be passed in as an int of 2. 
+    */
+    public void newSymptoms(int illnessIndex, int pain_rating) {
+        illness.setPainRating(illnessIndex, pain_rating);
     }
     
     private void calculateSD() {
@@ -52,12 +55,13 @@ public class Symptoms {
     
     public void isEmergency(double severity) {
         if (severity >= 2) {
-            System.out.println("These symptoms are problematic consult" +
-                    " healthcare.");
+            System.out.println("These symptoms are extremely severe" +
+                " consult healthcare immediately!");
         }
         else {
-            System.out.println("These symptoms are extremely severe" +
-                    " consult healthcare immediately!");
+            
+            System.out.println("These symptoms are problematic consult" +
+                " healthcare.");
         }
     }
     
